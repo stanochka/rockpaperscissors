@@ -1,0 +1,67 @@
+body {
+  background: linear-gradient(45deg, #5B577D, #B9BAF2);
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #262230;
+  margin: 40px;
+}
+
+#buttonWrapper {
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playButton {
+  width: 200px;
+  height: 200px;
+  border-radius: 20%;
+  background: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playButton:hover, .playButton:active, .playButton:focus {
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+  box-shadow: 6px 6px 30px -6px rgba(34, 60, 80, 0.5);
+  -webkit-box-shadow: 6px 6px 30px -6px rgba(34, 60, 80, 0.5);
+  -moz-box-shadow: 6px 6px 30px -6px rgba(34, 60, 80, 0.5);
+}
+
+.playButton>img {
+  width: 130px;
+  height: 130px;
+}
+
+#playArea {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#output {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.8em;
+}
