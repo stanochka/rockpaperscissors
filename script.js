@@ -19,7 +19,7 @@ const playerPlay = () => {
   if (valid.includes(playerSelection)) {
   	return playerSelection;
   } else {
-  alert('Invalid input!');
+    alert('Invalid input!');
   	return playerPlay();
   }
 }
