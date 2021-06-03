@@ -19,7 +19,7 @@ h1 {
 }
 
 #buttonWrapper {
-  margin: 50px;
+  margin: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -52,7 +52,7 @@ h1 {
 }
 
 #playArea {
-  margin-top: 50px;
+  margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: center;
