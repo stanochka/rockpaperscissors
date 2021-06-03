@@ -12,6 +12,7 @@ const computerPlay = () => {
 }
 
 //will prompt player to make a move
+//TODO: change for clicking buttons
 const playerPlay = () => {
 	let playerText = prompt('Please enter Rock, Paper or Scissors:');
   let playerSelection = playerText.slice(0, 1).toUpperCase() + playerText.slice(1).toLowerCase();
@@ -64,4 +65,5 @@ const game = () => {
   }
 }
 
+//TODO: make game start on click of any buttons
 game()

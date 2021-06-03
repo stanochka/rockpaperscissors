@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>Rock Paper Scissors</title>
   </head>
   <body>
@@ -14,8 +16,14 @@
       <div class="playButton" id="scissors"><img src="scissors.svg" /></div>
     </div>
     <div id="playArea">
-      <div id="playerMove">YOU:</div>
-      <div id="computerMove">COMPUTER:</div>
+      <div class="move" id="player">
+        <span class="material-icons">person</span>
+        <div id="playerMove"></div>
+      </div>
+      <div class="move" id="computer">
+        <span class="material-icons">smart_toy</span>
+        <div id="computerMove"></div>
+      </div>
     </div>
     <div id="output">Here will be result</div>
   </body>
