@@ -14,9 +14,7 @@ window.onload = ()=> {
   }
 
   //DOM selectors
-  const rockButton = document.querySelector('#rock');
-  const paperButton = document.querySelector('#paper');
-  const scissorsButton = document.querySelector('#scissors');
+  const buttons = document.querySelectorAll('.playButton');
   const player = document.querySelector('#playerMove');
   const computer = document.querySelector('#computerMove');
   const output = document.querySelector('#output');
@@ -51,31 +49,17 @@ window.onload = ()=> {
     }
   }
 
-  //main function for DOM manipulations
-  const play = () => {
-    var playerSelection, computerSelection;
-    rockButton.onclick = () => {
-      playerSelection = 'Rock';
+  //button click listener
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      playerSelection = button.id.slice(0, 1).toUpperCase() + button.id.slice(1);
       computerSelection = computerPlay();
       player.textContent = playerSelection;
       computer.textContent = computerSelection;
       playRound(playerSelection, computerSelection);
-    }
-    paperButton.onclick = () => {
-    	playerSelection = 'Paper';
-      computerSelection = computerPlay();
-      player.textContent = playerSelection;
-      computer.textContent = computerSelection;
-      playRound(playerSelection, computerSelection);
-    }
-    scissorsButton.onclick = () => {
-    	playerSelection = 'Scissors';
-      computerSelection = computerPlay();
-      player.textContent = playerSelection;
-      computer.textContent = computerSelection;
-      playRound(playerSelection, computerSelection);
-    }
-  }
+    });
+  });
+
   //checks result and restarts the score count
   const game = () => {
     let playerResult = results.reduce((sum, x) => sum + x);
@@ -93,5 +77,4 @@ window.onload = ()=> {
     }
   }
 
-  play()
 };
