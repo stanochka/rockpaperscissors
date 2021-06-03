@@ -1,3 +1,5 @@
+window.onload = ()=> {
+
 //will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 const computerPlay = () => {
   let result = Math.floor(Math.random()*3);
@@ -11,35 +13,34 @@ const computerPlay = () => {
   }
 }
 
+var results = [];
 //plays a single round of Rock Paper Scissors
 const playRound = (playerSelection, computerSelection) => {
-	console.log('YOU: ' + playerSelection + ', COMPUTER: ' + computerSelection);
   if (playerSelection === 'Rock' && computerSelection === 'Scissors') {
-    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
     output.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
-    return 1;
+    results.push(1);
+    console.log(results);
   } else if (playerSelection === 'Rock' && computerSelection === 'Paper') {
-    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
     output.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
-    return 0;
+    results.push(0);
+    console.log(results);
   } else if (playerSelection === 'Paper' && computerSelection === 'Rock') {
-    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
     output.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
-    return 1;
+    results.push(1);
+    console.log(results);
   } else if (playerSelection === 'Paper' && computerSelection === 'Scissors') {
-    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
     output.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
-    return 0;
+    results.push(0);
+    console.log(results);
   } else if (playerSelection === 'Scissors' && computerSelection === 'Paper') {
-    console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
     output.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
-    return 1;
+    results.push(1);
+    console.log(results);
   } else if (playerSelection === 'Scissors' && computerSelection === 'Rock') {
-    console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
     output.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
-    return 0;
+    results.push(0);
+    console.log(results);
   } else if (playerSelection === computerSelection) {
-  	console.log('It\'s a tie! Play another round');
     output.textContent = 'It\'s a tie! Play another round';
   	//return playRound(playerPlay(), computerPlay());
   }
@@ -53,39 +54,43 @@ const player = document.querySelector('#playerMove');
 const computer = document.querySelector('#computerMove');
 const output = document.querySelector('#output');
 
-var playerSelection, computerSelection;
-rockButton.onclick = () => {
-  playerSelection = 'Rock';
-  computerSelection = computerPlay();
-  player.textContent = playerSelection;
-  computer.textContent = computerSelection;
-  playRound(playerSelection, computerSelection);
- 	}
-paperButton.onclick = () => {
-	playerSelection = 'Paper';
-  computerSelection = computerPlay();
-  player.textContent = playerSelection;
-  computer.textContent = computerSelection;
-  playRound(playerSelection, computerSelection);
- 	}
-scissorsButton.onclick = () => {
-	playerSelection = 'Scissors';
-  computerSelection = computerPlay();
-  player.textContent = playerSelection;
-  computer.textContent = computerSelection;
-  playRound(playerSelection, computerSelection);
- 	}
+const play = () => {
+  var playerSelection, computerSelection;
+  rockButton.onclick = () => {
+    playerSelection = 'Rock';
+    computerSelection = computerPlay();
+    player.textContent = playerSelection;
+    computer.textContent = computerSelection;
+    playRound(playerSelection, computerSelection);
+  }
+  paperButton.onclick = () => {
+  	playerSelection = 'Paper';
+    computerSelection = computerPlay();
+    player.textContent = playerSelection;
+    computer.textContent = computerSelection;
+    playRound(playerSelection, computerSelection);
+  }
+  scissorsButton.onclick = () => {
+  	playerSelection = 'Scissors';
+    computerSelection = computerPlay();
+    player.textContent = playerSelection;
+    computer.textContent = computerSelection;
+    playRound(playerSelection, computerSelection);
+  }
+}
 
-//TODO: make game start on click and finish after 5 rounds
+//TODO: make game finish after 5 rounds
   const game = () => {
-    let results = [];
+    //let results = [];
     while (results.length < 5) {
-      let round = playRound(playerPlay(), computerPlay());
-      results.push(round);
+      play();
     }
     if (results.reduce((sum, x) => sum + x) >= 3) {
-      return console.log('YOU WIN!');
+      output.textContent = 'YOU WIN!';
     } else {
-      return console.log('YOU LOOSE:(')
+      output.textContent = 'YOU LOOSE:(';
     }
   }
+
+  play()
+};
